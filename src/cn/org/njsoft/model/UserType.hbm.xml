@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping> 
+    <class name="cn.org.njsoft.model.UserType" table="usertype"><!--把类和数表关联起来-->
+        <id name="typeId"  type="int">    <!--typeId的产生方式是native-->
+            <column name="typeId"  />
+            <generator class="native" />
+		</id>	
+		<property name="typeName" type="string" not-null="true"></property>
+		
+
+		<set name="user" >
+			<key column="userTypeId"></key>  <!-- 关联的外键 -->
+			<one-to-many class="cn.org.njsoft.model.User"></one-to-many>
+		</set>
+		
+    </class>
+</hibernate-mapping>

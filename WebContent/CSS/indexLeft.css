@@ -1,0 +1,11 @@
+#container { padding:14px 0;}
+.small-nav { color:#336699; padding-bottom:20px; font-size: 15px;}
+.small-nav a{ color:#003366; text-decoration: none;}
+#main{width:696px;border-radius:16px;margin-left: -8px;padding: 10px;background-color: #8080ff; }
+ul{list-style-type:none;margin-left: 40px;}
+#img1{border:20px  solid; border-color: #99CDFD;border-width-left: 10px;}
+#img2{border:20px solid; border-color: #EFEFEF;}
+#img3{border:20px solid; border-color: #869093;}
+#one{ margin-right: 105px;padding-left: 50px;background-color:#99CDFD;margin-bottom: 5px;}
+#two{ margin-right: 105px;padding-left: 50px;background-color:#EFEFEF;margin-bottom: 8px; }
+#three{ margin-right: 105px;padding-left: 50px;background-color:#869093; }

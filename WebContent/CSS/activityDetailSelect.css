@@ -1,0 +1,31 @@
+@CHARSET "UTF-8";
+
+.time-item strong{
+	background:#7a15bd;
+	color:#fff;
+	line-height:49px;
+	font-size:36px;
+	font-family:Arial;
+	padding:0 10px;
+	margin-right:10px;
+	border-radius:5px;
+	box-shadow:1px 1px 3px rgba(0,0,0,0.2);
+}
+#day_show,#day_show1{
+	float:left;
+	line-height:49px;
+	color:#7a15bd;
+	font-size:32px;
+	margin:0 10px;
+	font-family:Arial, Helvetica, sans-serif;
+}
+
+.item-title .unit{
+	background:none;
+	line-height:49px;
+	font-size:24px;
+	padding:0 10px;
+	float:left;
+}
+
+

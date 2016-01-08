@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping> 
+    <class name="cn.org.njsoft.model.SignIn" table="signin"><!--把类和数表关联起来-->
+        <id name="signId"  type="int">    <!--signId的产生方式是native-->
+            <column name="signId"  />
+            <generator class="native" />
+		</id>
+		<property name="signState" type="int" not-null="true">         </property>
+		<property name="giftState" type="int" not-null="true">         </property>
+		<property name="signTime" type="timestamp" not-null="true">           </property>
+		<property name="signCheck" type="int" not-null="true">    </property>
+		
+		
+		<many-to-one name="signUser" column="signUserId" class="cn.org.njsoft.model.User" lazy="false" cascade="all" not-null="true">
+		</many-to-one> 
+		<many-to-one name="signAct" column="signActId" class="cn.org.njsoft.model.Activity" lazy="false" cascade="all" not-null="true">
+		</many-to-one> 
+		<set name="signGift" lazy="false">
+			<key column="linkSignId"></key>  <!-- 关联的外键 -->
+			<one-to-many class="cn.org.njsoft.model.SignGift"></one-to-many>
+		</set>
+    </class>
+</hibernate-mapping>

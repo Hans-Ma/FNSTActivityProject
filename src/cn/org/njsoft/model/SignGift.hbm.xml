@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping> 
+    <class name="cn.org.njsoft.model.SignGift" table="signgift"><!--把类和数表关联起来-->
+        <id name="signGiftId"  type="int">    <!--giftId的产生方式是native-->
+            <column name="signGiftId"  />
+            <generator class="native" />
+		</id>    
+			
+        <many-to-one name="linkSignId" column="linkSignId" class="cn.org.njsoft.model.SignIn" lazy="false" cascade="all" not-null="true" >
+		</many-to-one> 
+		 <many-to-one name="linkGiftId" column="linkGiftId" class="cn.org.njsoft.model.Gift" lazy="false" cascade="all" not-null="true">
+		</many-to-one> 
+		
+    </class>
+</hibernate-mapping>

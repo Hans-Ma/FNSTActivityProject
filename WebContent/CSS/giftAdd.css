@@ -1,0 +1,36 @@
+@CHARSET "UTF-8";
+#container {margin-top:20px; margin-left:-10px; width:700px;}
+.small-nav {margin-left:5px; color:#336699; padding-bottom:20px; font-size: 15px;}
+.small-nav a{ color:#003366; text-decoration: none;}
+#main{width:696px;border-radius:16px;margin-left: -8px;padding: 10px;}
+.shell { width:988px; margin:0 auto; }
+.cl { font-size:0; line-height:0; clear:both; display:block; height:0; }
+#content { float:left; margin-right:6px;width:700px;}
+.box {margin-top:-10px; background:#ffffff; height:100%; padding:1px; margin-bottom:20px; border:solid;border-radius:16px; border-color: #EEE}
+.box-head { margin-top:-20px;border-radius:10px; background:#2936A1; height:32px; color:#fff; padding: 0 10px; line-height:32px; white-space:nowrap; border-bottom:solid 1px #fff; }
+.box-head .right{ padding-top:5px; line-height:13px;}
+.box-head .right label,
+.box-head .right input { float:left; }
+.box-head .right label { padding:4px 0 0 0;}
+.box-head .right input { margin-left:5px;}
+.form { padding:15px 10px 5px 10px; }
+.form label{ display:block; font-weight: bold; font-size:13px; padding-bottom:4px; }
+.form label span{ color:#999; font-weight: normal;}
+.form .field { display:block; }
+.form .inline-field .field { display:inline;}
+.form .req { font-size:13px; float:right; white-space:nowrap; color:#999;  }
+.form p{ padding-bottom:15px; }
+
+.size1 { width:716px; }
+.size2 { width:80px; }
+.size3 { width:120px; }
+textarea.size1 { height:180px; }
+.buttons { text-align: right; padding:10px; background:#eee; border-top:solid 1px #e0e0e0; }
+.buttons .button{ margin-left:3px;}
+.box-content { padding:10px; }
+.buttons { text-align: right; padding:10px; background:#eee; border-top:solid 1px #e0e0e0;border-radius:16px; }
+.buttons .button{ margin-left:3px;}
+.box-content { padding:10px; }
+#searchinfo{width:660px;border:4px solid #DDD;margin-left:10px;margin-top:30px;border-radius: 20px;font-size:15px;}
+ul{list-style-type:square;border-left-width:-10px;}
+li{color:#009;font-size:20px;margin-bottom:-10px;text-align:left;}

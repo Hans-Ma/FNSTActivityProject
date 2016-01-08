@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping> 
+    <class name="cn.org.njsoft.model.Activity" table="activity"><!--把类和数表关联起来-->
+   		<id name="actId"  type="int">   
+            <column name="actId"  />
+            <generator class="native" />
+		</id>
+
+		<set name="signInAct"  >
+			<key column="signActId"></key>  <!-- 关联的外键 -->
+			<one-to-many class="cn.org.njsoft.model.SignIn"></one-to-many>
+		</set>
+		
+		<set name="GiftAct" >
+			<key column="giftActId"></key>  <!-- 关联的外键 -->
+			<one-to-many class="cn.org.njsoft.model.Gift"></one-to-many>
+		</set>			
+		<property name="actStartTime"  type="timestamp" not-null="true" > </property>
+		<property name="actAddress"   type="string" not-null="true" ></property>
+		<property name="actContent" type="string" not-null="true">   </property>
+		<property name="actName" type="string" not-null="true">  </property>
+		<property name="actGiftNumber" type="int" not-null="true" >  </property>
+		<property name="signStartTime" type="timestamp" not-null="true"  >  </property>
+        <property name="actEndTime" type="timestamp"  not-null="true" >  </property>
+        <property name="percent" type="string" not-null="true"> </property>
+		
+    </class>
+</hibernate-mapping>

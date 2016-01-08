@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping> 
+    <class name="cn.org.njsoft.model.User" table="user"><!--把类和数表关联起来-->
+
+        <id name="userId"  type="int">    
+            <column name="userId"  />
+            <generator class="native" />
+		</id>
+
+		<set name="signInUser" lazy="false">
+			<key column="signUserId"></key>  <!-- 关联的外键 -->
+			<one-to-many class="cn.org.njsoft.model.SignIn"></one-to-many>
+		</set>
+		<property name="userName"  type="string"  not-null="true">
+			
+        </property>
+		<property name="userSex"   type="string" not-null="true">
+			
+        </property>
+		<property name="userAge" type="int" not-null="true">     
+			
+        </property>
+		<property name="userTrueName" type="string" not-null="true">     
+			
+        </property>
+		<property name="userPhone" type="string" not-null="true">     
+			
+        </property>
+		<property name="userMail" type="string" not-null="true">     
+			
+        </property>
+		<property name="userPassword" type="string" not-null="true">     
+			
+        </property>
+		<property name="userState" type="int" not-null="true">     
+			
+        </property>
+		<many-to-one name="userType" column="userTypeId" class="cn.org.njsoft.model.UserType" lazy="false" cascade="all" not-null="true">
+		</many-to-one> 
+    </class>
+</hibernate-mapping>

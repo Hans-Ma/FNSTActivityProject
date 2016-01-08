@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<package name="emspkg" extends="struts-default">		
+		<action name="login" class="loginAction">
+			<result name="success">/welcome.jsp</result>
+			<result name="behind">/index.jsp</result>
+			<result name="input">/login.jsp</result>
+		</action>		
+		<action name="rand" class="cn.org.njsoft.action.RandomAction">              
+			<result type="stream">                   
+			<param name="contentType">image/jpeg</param>                   
+			<param name="inputName">inputStream</param>              
+		</result>       
+		</action> 		
+		<action name="loginout" class="cn.org.njsoft.action.LoginOutAction">
+			<result name="success" type="redirect" >/login.jsp</result>
+		</action>
+		<action name="addGiftReady" class="giftAction" method="addGiftReady">
+			<result name="success">/gift/giftAdd.jsp</result>
+			<result name="input">/activity/activityAdd.jsp</result>
+		</action>	
+		<action name="addGiftReadyTwo" class="giftAction" method="addGiftReadyTwo">
+			<result name="success">/gift/giftAddtwo.jsp</result>
+			<result name="input">/indexLeft.jsp</result>
+		</action>		
+		<action name="addGift" class="giftAction" method="addGift">
+			<result name="success">/gift/giftAdd.jsp</result>
+			<result name="input">/gift/giftAdd.jsp</result>
+		</action>
+		<action name="addGiftTwo" class="giftAction" method="addGiftTwo">
+			<result name="success">/indexLeft.jsp</result>
+			<result name="input">/gift/giftAddtwo.jsp</result>
+		</action>
+		<action name="addActivityReady" class="activityAction" method="addActivityReady">
+			<result name="success">/activity/activityAdd.jsp</result>
+			<result name="input">/indexLeft.jsp</result>
+		</action>
+		<action name="addActivity" class="activityAction" method="addActivity" >
+			<result name="success">/activity/activityAdd.jsp</result>
+		 	<result name="input" >/activity/activityAdd.jsp</result>   
+		</action>
+		
+		<action name="signIn" class="signInAction" method="check">
+			<result name="success" type="chain">activityList</result>
+		</action>
+		<action name="activityList" class="activityAction" method="activitySelect">
+			<result name="success">activity/activityList.jsp</result>
+			<result name="input">/leftIndex.jsp</result>
+		</action>
+		<action name="addUserByExcel" class="excelAction" method="addUserByExcel">
+			<result name="input">/indexLeft.jsp</result>
+		</action>
+		<action name="jumpToLeadExcel" class="excelAction" method="jumpToLeadExcel">
+			<result name="success">/forms/leadExcel.jsp</result>
+			<result name="input">/indexLeft.jsp</result>
+		</action>
+		<action name="exportNumExcel" class="excelAction" method="exportNumExcel">
+		</action>
+		<action name="exportUnnumExcel" class="excelAction" method="exportUnnumExcel">			
+		</action>
+		<action name="showGiftCondition" class="giftAction" method="showGiftCondition">
+			<result name="success">/gift/giftList.jsp</result>
+		</action>
+		<!-- 通过活动id获取该活动的所有礼品 -->
+		<action name="getAllGiftByActid" class="giftAction" method="getAllGiftByActid">
+			<result name="success">/gift/giftList.jsp</result>
+		</action>
+		<!-- 获取签到但是没有收到礼品的会员信息 -->
+		<action name="getNumByActId" class="giftAction" method="getNumByActId">
+			<result name="success">/gift/userGift.jsp</result>
+		</action>
+		<!-- 从signInCheck.jsp跳转到验证页面validate.jsp页面 -->
+		<action name="JumpToValite" class="validateAction" method="JumpToValite">
+			<result name="success">/signIn/validate.jsp</result>
+		</action>
+		<!-- 发送验证的邮件 -->
+		<action name="sendEmail" class="validateAction" method="sendEmail">
+			<result name="success">/signIn/validate.jsp</result>
+		</action>
+		<!-- 验证用户输入的验证信息是否正确 -->
+		<action name="checkEmailValidate" class="validateAction" method="checkEmailValidate">
+			<result name="success">/signIn/validate.jsp</result>
+		</action>
+		<action name="signIn" class="signInAction" method="check">
+			<result name="forUser" type="chain">activityUnsignList</result>
+			<result name="forAdmin" type="chain">activityList</result>
+		</action>
+		<action name="activityUnsignList" class="activityAction" method="activityUnsign">
+			<result name="success" >activity/activityList.jsp</result>
+			<result name="input">/leftIndex.jsp</result>		
+		</action>
+		<action name="activityList" class="activityAction" method="activitySelect">
+			<result name="success" >activity/activityList.jsp</result>
+			<result name="input">/leftIndex.jsp</result>
+		</action>
+		
+		<action name="activitySignList" class="activityAction" method="activitySign">
+			<result name="success" >signIn/signInCheck.jsp</result>
+			<result name="input">/leftIndex.jsp</result>
+		</action>
+		<action name="activitySignUncheckedList" class="activityAction" method="activitySignUnChecked">
+			<result name="success" >signIn/signInCheck.jsp</result>
+			<result name="input">/leftIndex.jsp</result>
+		</action>
+		<action name="activityGiftGet" class="activityAction" method="activitySign">
+			<result name="success" >gift/giftGet.jsp</result>
+			<result name="input">/leftIndex.jsp</result>
+		</action>
+		<action name="giftGet" class="giftAction" method="giftGet">
+			<result name="userGiftForUser" type="chain">activityGiftGet</result>
+		</action>
+		<action name="giftGetForAdmin" class="giftAction" method="giftGetForAdmin">
+			<result name="userGift" >/gift/userGift.jsp</result>
+		</action>
+		
+		<action name="userSelect" class="userAction" method="select">
+			<result name="success">/user/userSelect.jsp</result>
+			<result name="input">/indexLeft.jsp</result>
+		</action>
+		<action name="userDelete" class="userAction" method="delete">
+			<result name="success" type="redirect">/userSelect.action</result>
+		</action>
+		<action name="addUser" class="userAction" method="addUser">
+			<result name="success">/user/userAdd.jsp</result>
+			<result name="input">/user/userAdd.jsp</result> 
+			<result name="error">/indexLeft.jsp</result>
+			 
+		</action>
+		<action name="giftSelect" class="giftAction" method="select">
+			<result name="success">/gift/giftSelect.jsp</result>
+			<result name="input">/indexLeft.jsp</result>
+		</action>
+
+		<action name="ajaxCheck" class="ajaxCheckAction"> </action>
+		<action name="ajaxLoginAction" class="ajaxLoginAction"> </action>
+		
+		<action name="activitySelect" class="activityAction" method="activitySelect">
+			<result name="success">/activity/activitySelect.jsp</result>
+			<result name="input">/indexLeft.jsp</result>
+		</action>
+		<action name="activityDetailSelect" class="activityAction" method="activityDetailSelect">
+			<result name="success">/activity/activityDetailSelect.jsp</result>
+		</action>
+
+		<action name="userDetail" class="userAction" method="detail">
+			<result name="success">/user/userDetail.jsp</result>
+		</action>
+		<action name="updatePrepare" class="userAction" method="updatePrepare">
+			<result name="success">/user/userUpdate.jsp</result>
+		</action>
+		<action name="userUpdate" class="userAction" method="update">
+			<result name="success" type="redirect">/userSelect.action</result>
+			<result name="input" type="redirect">/userSelect.action</result>
+		</action>
+		<action name="signInSelect" class="statisticsAction" method="select">
+			<result name="success">/forms/leadExcel.jsp</result>
+		</action>
+		<action name="signInSelect2" class="statisticsAction" method="select2">
+			<result name="success">/forms/leadExcel.jsp</result>
+		</action>
+		<action name="userSignInSelect" class="signInAction" method="userSignInSelect">
+			<result name="success">/activity/userSignInSelect.jsp</result>
+		</action>
+		<action name="messageValidate" class="messageValidate" method="mainSelect">
+			<result name="success">/indexLeft.jsp</result>
+		</action>
+		<action name="detailInformation" class="userAction" method="detailInformation">
+			<result name="success">/user/userDetailInformation.jsp</result>
+			<result name="success">/leftIndex.jsp</result>
+		</action>
+		<action name="userDetailInformation" class="userAction" method="detailInformation">
+			<result name="success">/user/userDetailInformation.jsp</result>
+			<result name="input">/leftIndex.jsp</result>
+		</action>
+			<action name="userUpdatePassword" class="userAction" method="updatePassword">
+			<result name="success">/user/userDetailInformation.jsp</result>
+		</action>
+	</package>
+</struts>
